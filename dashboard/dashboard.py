@@ -189,8 +189,9 @@ heatmap_data = main_df[["latitude", "longitude", "cnt_day"]].dropna()
 heatmap_map = folium.Map(location=[heatmap_data["latitude"].mean(), heatmap_data["longitude"].mean()], zoom_start=12)
 HeatMap(heatmap_data.values, radius=15).add_to(heatmap_map)
 
+st.write("**Gambar diatas merupakan lokasi yang dimana warna paling merah menandakan peminjaman paling banyak**")
+
 # Menampilkan Heatmap di Streamlit
-st.write("**Gabmbar diatas merupakan lokasi yang dimana warna paling merah menandakan peminjaman paling banyak**")
 folium_static(heatmap_map)
 
 #terakhir
