@@ -165,7 +165,7 @@ st.subheader("Geospatial Analysis: Sebaran Peminjaman Sepeda")
 # Menampilkan 5 lokasi dengan jumlah peminjaman tertinggi
 top_locations = main_df.groupby(["latitude", "longitude"]).agg({"cnt_day": "sum"}).reset_index()
 top_locations = top_locations.sort_values(by="cnt_day", ascending=False).head(5)
-st.write("**Top 5 Lokasi dengan Peminjaman Terbanyak**")
+st.write("**Lokasi dengan Peminjaman Terbanyak**")
 st.dataframe(top_locations)
 
 # Membuat Peta Interaktif dengan Folium
@@ -190,6 +190,7 @@ heatmap_map = folium.Map(location=[heatmap_data["latitude"].mean(), heatmap_data
 HeatMap(heatmap_data.values, radius=15).add_to(heatmap_map)
 
 # Menampilkan Heatmap di Streamlit
+st.write("**Gabmbar diatas merupakan lokasi yang dimana warna paling merah menandakan peminjaman paling banyak**")
 folium_static(heatmap_map)
 
 #terakhir
